@@ -98,6 +98,65 @@ The following files are included in `Files/`. Each entry lists the main ports an
 1. Two 8-bit values are stored in the latches. In the lab example these were derived from the student number
    (A = 0x58, B = 0x19).
 2. The FSM generates a 4-bit state. Each state forms part of a microcode sequence. The FSM advances when
-   `data_in` is asserted.
+   data_in is asserted.
 3. The 4-bit state feeds the 4-to-16 decoder. The decoder asserts one microcode line among sixteen.
-4. The ALU samples the microcode at the clock rising edge, performs the selected operation on A and
+4. The ALU samples the microcode at the clock rising edge, performs the selected operation on A and B, and
+   updates R1, R2, and Neg.
+5. The `sseg` driver converts R1, R2, and student_id outputs into segment patterns for physical displays.
+
+Common timing note
+
+The decoder is combinational. The ALU and FSM are sequential. The ALU samples microcode at the rising edge
+of the clock, so simulation traces can show a one-clock delay between the decoder change and the ALU result.
+
+How to run and simulate
+
+The files are written for standard VHDL simulators and were developed with Quartus II for synthesis and
+ModelSim/Quartus waveform tools for simulation. The repository contains waveforms and output reports from
+those tools.
+
+Quick simulation (suggested tools)
+
+- ModelSim (mentor): Open the `Files/` project or compile the VHDL sources, then run the included testbenches or
+  manually toggle `data_in` and `clock` in the waveform viewer.
+- GHDL (open source): Use `ghdl -a` to analyze and `ghdl -r` to run testbenches. A small example flow:
+
+```powershell
+# analyze all VHDL files
+ghdl -a Files\*.vhd
+
+# run a testbench (if present) and generate a VCD file
+ghdl -r work.tb_top --vcd=sim.vcd
+
+# view sim.vcd in GTKWave
+gtkwave sim.vcd
+```
+
+Notes on running on FPGA
+
+The project was prepared for Quartus II. Use the BDF or project files inside `Files/` to recreate the Quartus
+project. Pin assignments and device settings are stored in the Quartus files. For a board build, follow the
+typical Quartus compile -> fitter -> programmer flow.
+
+Report and images
+
+The full lab writeup is available in `cpu_report.pdf`. The report contains the lab introduction, design
+diagrams, waveforms, microcode tables, and handwritten calculations. Add `cpu_report.pdf` to the repo root to
+make the report link visible on GitHub.
+
+Design notes and results
+
+- The ALU implements multiple function sets across three versions. Problem 1 shows a combined ALU, Problem 2
+  a variant with rotation and bit-reorder functions, and Problem 3 demonstrates a simple yes/no output based on
+  student ID parity.
+- The FSM is implemented as a Moore machine with nine states and outputs that map to the student number digits.
+- The 7-segment driver supports hexadecimal display and a neg flag for sign.
+
+Credits
+
+- Author: Aditya Shinde
+- Lab: Lab 6 report, Student number 501175819
+
+Contact
+
+For questions about the files or to request a file-by-file annotated guide, open an issue or submit a pull request.
