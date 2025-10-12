@@ -22,27 +22,27 @@ lab report are included in this repository.
 ## Top-level diagrams and waveforms
 
 ### FSM (VHDL and waveform)
-![](images/FSM/FSMvhd1.png)
-![](images/FSM/FSMvwf.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/FSM/FSMvhd1.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/FSM/FSMvwf.png)
 
 ### Latches (VHDL and waveform)
-![](images/Latch/LatchVHD.png)
-![](images/Latch/Latch1VWF.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/Latch/LatchVHD.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/Latch/Latch1VWF.png)
 
 ### ALU diagrams and waveforms
-![](images/ALU/ALU1.png)
-![](images/ALU/ALU2.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/ALU/ALU1.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/ALU/ALU2.png)
 
 ### Top-level block and waveform
-![](images/BDFdiagram.png)
-![](images/VWF_final.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/BDFdiagram.png)
+![](https://raw.githubusercontent.com/Adi-Shinde/Central-Processing-Unit/main/All%20Code%20%2B%20Diagram%20%28Pictures%29/VWF_final.png)
 
 ---
 
 ## Project structure
 
 - `Files/` — VHDL sources and design files used for synthesis and simulation. Key VHDL files are listed below.
-- `images/` — Diagrams and waveform screenshots used in the report.
+- `All Code + Diagram (Pictures)/` — Diagrams and waveform screenshots used in the report.
 - `Files/output_files/` — Generated reports and waveform files from synthesis and simulation runs.
 
 ---
